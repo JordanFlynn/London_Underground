@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.londonunderground.controller.MainController">
+   <children>
+      <BorderPane prefHeight="700.0" prefWidth="1100.0">
+         <bottom>
+            <HBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="1100.0" BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="1100.0">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="TOP_RIGHT" prefHeight="197.0" prefWidth="971.0" VBox.vgrow="NEVER">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="197.0" prefWidth="367.0">
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <ListView fx:id="routeOutput" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="250.0">
+                                 <children>
+                                    <Label text="Waypoint" underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="75.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <MenuButton fx:id="waypointStation" mnemonicParsing="false" text="Waypoints">
+                                       <VBox.margin>
+                                          <Insets left="75.0" top="5.0" />
+                                       </VBox.margin>
+                                    </MenuButton>
+                                    <HBox prefHeight="28.0" prefWidth="250.0">
+                                       <children>
+                                          <Button fx:id="addWaypointButton" mnemonicParsing="false" text="Add" onAction="#addWaypoint"/>
+                                          <Button fx:id="removeWaypointButton" mnemonicParsing="false" text="Remove" onAction="#removeWaypoint">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="60.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <ListView fx:id="waypointView" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="250.0">
+                                 <children>
+                                    <VBox prefHeight="201.0" prefWidth="250.0">
+                                       <children>
+                                          <Label text="Avoid" underline="true">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="90.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <MenuButton fx:id="avoidStation" mnemonicParsing="false" text="Avoid">
+                                             <VBox.margin>
+                                                <Insets left="85.0" top="5.0" />
+                                             </VBox.margin>
+                                          </MenuButton>
+                                          <HBox prefHeight="28.0" prefWidth="250.0">
+                                             <children>
+                                                <Button fx:id="addAvoidButton" mnemonicParsing="false" text="Add" onAction="#addAvoid"/>
+                                                <Button fx:id="removeAvoidButton" mnemonicParsing="false" text="Remove" onAction="#removeAvoid">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="60.0" top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <ListView fx:id="avoidView" prefHeight="200.0" prefWidth="200.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="197.0" prefWidth="320.0">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="291.0">
+                                       <children>
+                                          <Label text="Station Selection" underline="true">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="161.0" prefWidth="364.0">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="160.0" prefWidth="160.0">
+                                             <children>
+                                                <Label text="Start">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <MenuButton fx:id="startStation" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Starting Station" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="161.0" prefWidth="159.0">
+                                             <children>
+                                                <Label text="End">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <MenuButton fx:id="endStation" mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="End Station" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children></HBox>
+         </bottom>
+         <center>
+            <AnchorPane fx:id="mapPane">
+               <ImageView fx:id="zoneImage" fitHeight="500.0" fitWidth="883.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            </AnchorPane>
+         </center>
+         <left>
+            <HBox prefHeight="500.0" prefWidth="216.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="207.0">
+                     <children>
+                        <Label text="Algorithms" underline="true">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="bfsAlgorithm" mnemonicParsing="false" onAction="#bfsSearch" text="Breath First Search">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="dijkstraAlgorithm" mnemonicParsing="false" onAction="#dijkstraSearch" text="Dijkstras">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="dijkstrasWithLineCost" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#dijkstraSearchWithPenalty" text="Dijkstras with Line Change Cost">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="depthFirstSearchButton" mnemonicParsing="false" onAction="#depthFirstSearch" text="Depth First Search">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox alignment="CENTER" prefHeight="26.0" prefWidth="207.0">
+                           <children>
+                              <Label text="# of DFS Permutations: " />
+                              <TextField fx:id="numPermutations" prefHeight="25.0" prefWidth="48.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Label text="Depth First List">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TreeView fx:id="depthFirstTree" prefHeight="190.0" prefWidth="250.0" />
+                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="250.0">
+                           <children>
+                              <Button fx:id="popMap" mnemonicParsing="false" onAction="#populateMap" text="Populate Map">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="clearMap" mnemonicParsing="false" onAction="#clearMap" text="Clear Map">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Button fx:id="exitApp" mnemonicParsing="false" onAction="#closeApplication" text="Exit application">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0">
+                     <HBox.margin>
+                        <Insets left="2.5" />
+                     </HBox.margin>
+                  </Separator>
+               </children>
+            </HBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
